@@ -31,3 +31,7 @@ function getHumanChoice() {
 
 let humanHand = getHumanChoice();
 console.log(humanHand);
+
+//variables to keep the score
+let humanScore = 0;
+let computerScore = 0;
