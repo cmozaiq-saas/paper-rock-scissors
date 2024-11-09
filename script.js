@@ -12,7 +12,7 @@ function getComputerChoice() {
    }
 }
 
-let machineHand = getComputerChoice();
+const machineHand = getComputerChoice();
 
 //human choice
 function getHumanChoice() {
@@ -29,7 +29,7 @@ function getHumanChoice() {
     }
 }
 
-let humanHand = getHumanChoice();
+const humanHand = getHumanChoice();
 console.log(humanHand);
 
 //variables to keep the score
