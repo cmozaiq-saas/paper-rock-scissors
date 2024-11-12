@@ -15,38 +15,28 @@ console.log("Computer Choose: " + machineHand);
 
 
 
-//human choice
-function getHumanChoice() {
-    let userInput = prompt("Pick: Rock, Paper or Scissor ?");
-    let normalizedInput = userInput.toLowerCase();
+//get human choice
+function getHumanChoice(userInput) {
 
     const rock = "rock";
     const paper = "paper";
     const scissor = "scissor";
 
-    if (normalizedInput === rock) {
+    if (userInput.toLowerCase() === rock) {
         return "rock";
-    } else if (normalizedInput === paper) {
+    } else if (userInput.toLowerCase() === paper) {
         return 'paper';
-    } else if (normalizedInput === scissor) {
+    } else if (userInput.toLowerCase() === scissor) {
         return "scissor";
     } else {
         return "please enter a valid value";
     }
 }
 
-let humanHand = getHumanChoice();
-console.log("You chose: " + humanHand);
 
 //variables to keep the score
 let humanScore = 0;
 let computerScore = 0;
-
-//create the single round function
-//user looses if 
-//User (hand ==  rock and machine is paper) 
-//or (hand == paper and machine scissors) 
-//or (hand == scissors and machine is rock).
 
 //round winner 
 
@@ -59,34 +49,51 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === "rock") {
         if (computerChoice === "paper") {
-            computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
         } else if (computerChoice === "scissor") {
-            humanScore++;
             return `You Win ${humanChoice} beats ${computerChoice}`;
         }
     }
 
     if (humanChoice === "paper") {
         if (computerChoice === "scissor") {
-            computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
         } else if (computerChoice === "paper") {
-            humanScore++;
             return `You Win ${humanChoice} beats ${computerChoice}`;
         }
     }
 
     if (humanChoice === "scissor") {
         if (computerChoice === "rock") {
-            computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
         } else if (computerChoice === "paper") {
-            humanScore++;
             return `You Win ${humanChoice} beats ${computerChoice}`;
         }
     }
 }
 
-console.log(playRound(humanHand, machineHand));
-console.log(playRound("rock", "paper"));
+
+//function play game 
+//game has 5 round 
+
+function playGame() {
+    //variables to keep the score
+    let humanScore = 0;
+    let computerScore = 0;
+    for (let i =0; i <5; i++) {
+        let userInput = prompt("Pick: Rock, Paper or Scissor ?");
+        let humanHand = getHumanChoice(userInput);
+        console.log("You chose: " + humanHand);
+        let round = playRound(humanHand, machineHand);
+        console.log(round);
+        if (round.includes('win')) {
+            humanScore++;
+        } else if (round.includes('lose')) {
+            computerScore++;
+        }
+    }
+    console.log(`Final Score: \n You: ${humanScore} \n Computer: ${computerScore} `);
+}
+
+console.log(playGame(humanHand, machineHand));
+
