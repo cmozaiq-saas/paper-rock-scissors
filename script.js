@@ -86,7 +86,7 @@ function playGame() {
         console.log("You chose: " + humanHand);
         let round = playRound(humanHand, machineHand);
         console.log(round);
-        if (round.includes('win')) {
+        if (round.includes('Win')) {
             humanScore++;
         } else if (round.includes('lose')) {
             computerScore++;
@@ -95,5 +95,5 @@ function playGame() {
     console.log(`Final Score: \n You: ${humanScore} \n Computer: ${computerScore} `);
 }
 
-console.log(playGame(humanHand, machineHand));
+console.log(playGame());
 
