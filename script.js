@@ -1,9 +1,9 @@
 //computer choice
 function getComputerChoice() {
-   let comChoice = Math.random();
+   let comChoice = Math.floor(Math.random()*3);
    if (comChoice === 0 ) {
         return "rock";
-   } else if (comChoice <= 0.5) {
+   } else if (comChoice === 1) {
         return "paper";
    } else {
         return "scissor";
@@ -11,6 +11,9 @@ function getComputerChoice() {
 }
 
 let machineHand = getComputerChoice();
+console.log("Computer Choose: " + machineHand);
+
+
 
 //human choice
 function getHumanChoice() {
@@ -22,18 +25,18 @@ function getHumanChoice() {
     const scissor = "scissor";
 
     if (normalizedInput === rock) {
-        return console.log("rock");
+        return "rock";
     } else if (normalizedInput === paper) {
-        return console.log('paper');
+        return 'paper';
     } else if (normalizedInput === scissor) {
-        return console.log("scissor");
+        return "scissor";
     } else {
-        return console.log("please enter a valid value");
+        return "please enter a valid value";
     }
 }
 
 let humanHand = getHumanChoice();
-
+console.log("You chose: " + humanHand);
 
 //variables to keep the score
 let humanScore = 0;
@@ -58,14 +61,14 @@ function playRound(humanChoice, computerChoice) {
         if (computerChoice === "paper") {
             computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
-        } else if (computerChoice === "scissors") {
+        } else if (computerChoice === "scissor") {
             humanScore++;
             return `You Win ${humanChoice} beats ${computerChoice}`;
         }
     }
 
     if (humanChoice === "paper") {
-        if (computerChoice === "scissors") {
+        if (computerChoice === "scissor") {
             computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
         } else if (computerChoice === "paper") {
@@ -74,7 +77,7 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    if (humanChoice === "scissors") {
+    if (humanChoice === "scissor") {
         if (computerChoice === "rock") {
             computerScore++;
             return `You lose, ${computerChoice} beats ${humanChoice}`;
