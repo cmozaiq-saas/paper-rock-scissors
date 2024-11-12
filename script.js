@@ -9,8 +9,6 @@ function getComputerChoice() {
    }
 }
 
-let machineHand = getComputerChoice();
-console.log("Computer Choose: " + machineHand);
 
 
 
@@ -73,6 +71,8 @@ function playGame() {
         let userInput = prompt("Pick: Rock, Paper or Scissor ?");
         let humanHand = getHumanChoice(userInput);
         console.log("You chose: " + humanHand);
+        let machineHand = getComputerChoice();
+        console.log("Computer Choose: " + machineHand);
         let round = playRound(humanHand, machineHand);
         console.log(round);
         if (round.includes('Win')) {
