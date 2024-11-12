@@ -1,4 +1,3 @@
-//computer choice
 function getComputerChoice() {
    let comChoice = Math.floor(Math.random()*3);
    if (comChoice === 0 ) {
@@ -15,7 +14,6 @@ console.log("Computer Choose: " + machineHand);
 
 
 
-//get human choice
 function getHumanChoice(userInput) {
 
     const rock = "rock";
@@ -33,12 +31,6 @@ function getHumanChoice(userInput) {
     }
 }
 
-
-//variables to keep the score
-let humanScore = 0;
-let computerScore = 0;
-
-//round winner 
 
 
 
@@ -73,11 +65,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-//function play game 
-//game has 5 round 
 
 function playGame() {
-    //variables to keep the score
     let humanScore = 0;
     let computerScore = 0;
     for (let i =0; i <5; i++) {
